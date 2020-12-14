@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: discovery-server
+
+server:
+  port: 8761 # default port of discovery server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eurka: false # stopping discovery server to register itself with its pair it just for development mode.
+    fetch: false # stopping getting register from peers as we are only one
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
